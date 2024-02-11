@@ -1,0 +1,33 @@
+ASSIGNMENT ON MRF()
+
+1. select count(*) from EMP
+where sal<2000 and deptno=10;
+
+2. select sum(sal) from EMP
+where job='CLERK';
+
+3. select avg(sal) from EMP;
+
+4. select count(*) from EMP
+where ename like 'A%';
+
+5. select count(*) from EMP
+where job in ('CLERK','MANAGER');
+
+6. select sum(sal) from EMP
+where hiredate like '___%-02-%';
+
+
+7. select count(*) from EMP
+where mgr=7839;
+
+8. select count(*) from EMP
+where comm is not null and deptno=30;
+
+9. select avg(sal),sum(sal),count(*) ,max(sal) from EMP
+where job='PRESIDENT';
+
+10. select count(*) from EMP
+where ename like '%A%';
+
+
