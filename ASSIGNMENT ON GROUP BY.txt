@@ -1,0 +1,46 @@
+ASSIGNMENT ON GROUP BY
+
+1. select count(*),deptno from EMP
+   where job!='PRESIDENT'
+   group by deptno;
+
+2. select sum(sal),job from EMP
+   group by job;
+   
+3. select count(*),deptno from EMP
+   where job='MANAGER'
+   group by deptno;
+   
+4.  select avg(sal),deptno from EMP
+    where deptno<>20
+    group by deptno;
+
+5.  select count(*),job from EMP
+    where ename like '%A%'
+    group by job;
+    
+6.  select count(*),avg(sal),deptno from EMP
+     where sal>2000
+     group by deptno;
+    
+    
+7.  select sum(sal),deptno from EMP
+    where job='SALESMAN'
+    group by deptno;
+    
+8.  select count(*),max(sal),job from EMP
+     group by job;
+     
+ 9.  select max(sal),deptno from EMP
+      group by deptno;
+      
+      
+ 10.  select count(sal) from EMP;   
+ 
+ 11.  select count(*),deptno,hiredate from EMP
+       group by deptno,hiredate;  
+       
+       //may be wrong
+       
+       
+ 12.  select count(*)      
