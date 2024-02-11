@@ -1,0 +1,57 @@
+ASSIGNMENT ON HAVING CLAUSE
+
+1. select deptno,count(*) from EMP
+   
+   group by deptno
+   having count('CLERK')>=2;
+   
+   
+2.   select deptno,sum(sal) from EMP
+     group by deptno
+     having count(*)>=4;
+     
+ 
+ 3.  select count(*) ,job from EMP
+     where sal>1200 
+     group by job
+     having sum(sal)>3800;
+     
+     
+ 4.  select deptno,count(*) from EMP
+      group by deptno
+      having count('MANAGER')>2;
+      
+      
+      
+ 5. select job,max(sal) from EMP
+   group by job
+   having max(sal)>2600;
+   
+   
+   
+ 6.   select sal,count(*) from EMP
+    group by sal
+    having count(*)>1;
+    
+    
+    
+  7.  select hiredate,count(*) from EMP
+      group by hiredate
+      having count(*)>1;
+      
+      
+ 8.  select avg(sal) from EMP
+     group by deptno
+     having avg(sal)<3000;
+     
+     
+ 9.  select deptno from EMP
+     where ename like '%A%' or ename like '%S%'
+    group by deptno
+    having count(*)>=3;
+    
+    
+    
+10.  select min(sal),max(sal) from EMP
+      group by job
+      having min(sal)>1000 and max(sal)<5000;
