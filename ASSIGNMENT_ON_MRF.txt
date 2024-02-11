@@ -30,4 +30,34 @@ where job='PRESIDENT';
 10. select count(*) from EMP
 where ename like '%A%';
 
+11.select count(*),sum(sal) from EMP
+where ename like '%L%L%';
+
+12. select count(deptno) from EMP;
+
+13. select count(*) from EMP
+where ename like '%Z%';
+
+14. select count(*) from EMP
+where sal>2500 and ename like '%E%';
+
+15. select count(*) from EMP
+where job ='CLERL' and deptno=30;
+
+16. select max(sal) from EMP
+where job ='ANALYST';
+
+17. select count(distinct(sal)) from EMP;
+
+18. select count(job) from EMP;
+
+19. select avg(sal) from EMP
+where job='CLERK';
+
+20. select min(sal) from EMP
+where job in ('MANAGER','CLERK') and deptno=10;
+
+
+
+
 
