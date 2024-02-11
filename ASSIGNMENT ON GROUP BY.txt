@@ -43,4 +43,15 @@ ASSIGNMENT ON GROUP BY
        //may be wrong
        
        
- 12.  select count(*)      
+ 12.  select count(*),deptno,hiredate from EMP
+      group by deptno,hiredate;
+      
+ 13.  select count(*), deptno,sal from EMP
+       group by deptno,sal;
+       
+       
+ 14.  select count(*),deptno,ename from EMP
+      group by deptno,ename;
+      
+ 15.     select count(*),deptno,hiredate,sal from EMP
+          group by deptno,sal,hiredate;
