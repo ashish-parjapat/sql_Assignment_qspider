@@ -1,0 +1,108 @@
+ASSIGNMENT ON SUBQUERY CASE 1
+
+1. select ename from EMP
+    where sal > (select sal from EMP
+                   where ename ='ADAMS');
+                   
+                   
+ 2. select ename,sal from EMP
+      where sal <(select sal from EMP
+                   where ename='KING');
+                   
+                   
+  3.  select ename,deptno from EMP
+      where deptno=(select deptno from EMP
+                      where ename ='JONES');
+                      
+  
+  4.  select ename,job from EMP
+        where job=(select job from EMP
+                   where ename ='JAMES');
+                   
+  5.   select empno,ename,sal*12 from EMP
+       where  sal*12> (select sal*12 from EMP
+                         where ename='WARD');
+                         
+                         
+  6.    select ename,hiredate from EMP
+           where hiredate<(select hiredate from EMP
+                            where ename='SCOTT');
+                            
+                            
+                            
+  7.   select ename,hiredate from EMP
+        where hiredate> (select hiredate from EMP
+                           where job='PRESIDENT');
+                           
+                           
+  8.   select ename,sal from EMP
+       where sal<(select sal from EMP
+                      where empno=7839);
+                      
+                      
+  9.  select * from EMP
+      where hiredate <(select hiredate from EMP
+                       where ename='MILLER');
+                       
+                       
+ 10.   select ename,sal from EMP
+         where sal> (select sal from EMP
+                      where ename='ALLEN');
+                      
+ 
+ 
+ 11.  select ename,sal from EMP
+      where sal> (select sal from EMP
+                    where ename='MILLER') and sal<(select sal from EMP
+                    where ename='ALLEN');
+                    
+                    
+                    
+12.    select* from EMP
+      where deptno=20 and job=(select job from EMP
+                              where ename='SMITH');
+                              
+                              
+13.   select* from EMP
+     where job='MANAGER' and deptno=(select deptno from EMP
+                                      where ename='TURNER');
+                                      
+                                      
+14.  select ename,hiredate from EMP
+    where hiredate >1980 and hiredate<(select hiredate from EMP
+                                  where ename='KING');
+         
+         
+ 15.select ename,sal,sal*12 from EMP
+   where sal<(select sal from EMP
+              where ename='BLAKE') and sal>3500;
+              
+              
+ 16.  select* from EMP
+   where sal> (select sal from EMP
+              where ename='SCOTT') and sal<(select sal from EMP
+                                          where ename='KING');
+                                          
+                                          
+   17. select ename from EMP
+     where ename like 'A%' and job=(select job from EMP
+                                      where ename='BLAKE');
+                                          
+                                          
+ 18. select ename,comm from EMP
+   where comm is not null and job=(select job from EMP
+                                 where  ename='SMITH');
+                                 
+                                 
+                                 
+  19.  select* from EMP
+     where job='CLERK' and deptno=(select deptno from EMP
+                                      where ename='TURNER');
+                                      
+                                      
+  20.  select ename,sal,job from EMP
+     where sal*12 > (select sal*12 from EMP
+                     where ename='SMITH') and sal<(select sal*12 from EMP
+                                                  where ename='KING');
+                                      
+                                      
