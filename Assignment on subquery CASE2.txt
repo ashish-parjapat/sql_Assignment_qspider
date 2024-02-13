@@ -1,0 +1,58 @@
+Assignment on subquery case 2
+
+
+21.  select dname from dept
+   where deptno=(select deptno from EMP
+                  where ename='SMITH');
+                  
+                  
+                  
+22. select dname,loc from dept
+    where deptno=(select deptno from EMP
+                  where ename='KING');
+                  
+                  
+ 23.   select loc from dept
+        where deptno=(select deptno from EMP
+                      where empno=7902);
+                      
+                      
+ 24. select dname,loc,deptno from dept
+     where deptno=(select deptno from EMP
+                  where ename like '%R');  
+                  
+                  
+                  //ouput Subquery returns more than 1 row
+                  
+                  
+                  
+  25.    select dname from dept
+         where deptno=(select deptno from EMP
+                      where job='PRESIDENT');
+
+
+
+26.    select ename from EMP
+          where deptno=(select deptno from dept
+                        where dname='ACCOUNTING');
+                        
+                        
+                        
+  27.    select ename,sal from EMP
+           where deptno=(select deptno from dept
+                          where loc='CHICAGO');
+                          
+                          
+   28.   select* from EMP
+          where deptno=(select deptno from dept
+                          where dname='SALES');
+                          
+                          
+ 29.      select EMP.*,sal*12 from EMP
+        where deptno=(select deptno from dept
+                       where loc='NEW YORK');  
+                       
+                       
+ 30.  select ename from EMP
+   where deptno=(select deptno from dept
+                  where dname='OPERATIONS');
