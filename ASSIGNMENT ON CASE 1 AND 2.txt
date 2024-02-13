@@ -1,0 +1,63 @@
+ASSIGNMENT ON CASE 1 AND CASE 2
+
+31.select ename from EMP
+  where sal>(select sal from EMP
+        where ename='SCOTT') and deptno=(select deptno from dept
+                                    where dname='ACCOUNTING');
+                                    
+ 
+ 32.select* from EMP
+   where job='MANAGER' and deptno=(select deptno from dept
+                                 where loc='CHICAGO');
+                                 
+                                 
+ 
+ 33.  select ename,sal from EMP
+   where sal>(select sal from EMP
+              where ename='KING') and deptno=(select deptno from dept
+                                          where  dname='ACCOUNTING');
+                                          
+                                          
+34.  select * from EMP
+   where job='SALESMAN' and deptno=(select deptno from dept
+                                   where dname='SALES');
+                                   
+                                   
+   
+   
+ 35.  select ename,sal,job,hiredate from EMP
+    where deptno=(select deptno from dept
+             where dname='OPERATIONS') and hiredate >(select hiredate from EMP
+                                               where ename='KING');
+                                               
+                                               
+  36.   select ename from EMP
+     where deptno=(select deptno from dept
+     where dname like '%S');
+     //subquery return more than 1 row
+     
+     
+  37.  select dname from dept
+    where deptno=(select deptno from EMP
+                    where ename like '%A%');
+ //ERROR 1242 (21000): Subquery returns more than 1 row
+ 
+ 
+ 38.  select dname from dept
+       where deptno=(select deptno from EMP
+                      where sal=800);
+
+
+39.  select dname from dept
+     where deptno=(select deptno from EMP
+                where comm is not null);
+                
+ //  ERROR 1242 (21000): Subquery returns more than 1 row
+          
+         
+40.  select loc from dept
+   where deptno=(select deptno from EMP
+              where comm is not null ) and deptno=40;
+// ERROR 1242 (21000): Subquery returns more than 1 row
+              
+              
