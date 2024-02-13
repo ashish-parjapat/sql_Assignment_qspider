@@ -102,7 +102,7 @@ ASSIGNMENT ON SUBQUERY CASE 1
                                       
   20.  select ename,sal,job from EMP
      where sal*12 > (select sal*12 from EMP
-                     where ename='SMITH') and sal<(select sal*12 from EMP
+                     where ename='SMITH') and sal*12<(select sal*12 from EMP
                                                   where ename='KING');
                                       
                                       
