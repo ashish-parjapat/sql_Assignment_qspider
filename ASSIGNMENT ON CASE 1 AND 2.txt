@@ -32,15 +32,15 @@ ASSIGNMENT ON CASE 1 AND CASE 2
                                                
                                                
   36.   select ename from EMP
-     where deptno=(select deptno from dept
+     where deptno IN(select deptno from dept
      where dname like '%S');
-     //subquery return more than 1 row
+    
      
      
   37.  select dname from dept
-    where deptno=(select deptno from EMP
+    where deptno IN (select deptno from EMP
                     where ename like '%A%');
- //ERROR 1242 (21000): Subquery returns more than 1 row
+
  
  
  38.  select dname from dept
@@ -49,15 +49,15 @@ ASSIGNMENT ON CASE 1 AND CASE 2
 
 
 39.  select dname from dept
-     where deptno=(select deptno from EMP
+     where deptno IN (select deptno from EMP
                 where comm is not null);
                 
- //  ERROR 1242 (21000): Subquery returns more than 1 row
+
           
          
 40.  select loc from dept
-   where deptno=(select deptno from EMP
+   where deptno IN (select deptno from EMP
               where comm is not null ) and deptno=40;
-// ERROR 1242 (21000): Subquery returns more than 1 row
+
               
               
