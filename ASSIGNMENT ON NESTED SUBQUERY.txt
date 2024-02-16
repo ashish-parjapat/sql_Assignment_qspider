@@ -1,0 +1,68 @@
+ASSIGNMENT ON NESTED SUBQUERY
+
+1. select min(sal) from
+    where sal>(select min(sal) from EMP);
+    
+    
+ 2.  select max(sal) from EMP
+   where sal=(select max(sal) from EMP
+   where sal<(select max(sal) from EMP
+   where sal<(select max(sal) from EMP
+   where sal<(select max(sal) from EMP
+   where sal<(select max(sal) from EMP
+   where sal<(select max(sal) from EMP
+   where sal<(select max(sal) from EMP)))))));
+   
+   
+ 3. select ename from EMP
+  where sal=(select max(sal) from EMP
+   where sal<(select max(sal) from EMP
+  where sal<(select max(sal) from EMP)));
+  
+  
+  
+ 4. 
+ select empno from EMP
+   where sal=(select max(sal) from EMP
+   where sal<(select max(sal) from EMP));
+   
+   
+  5 select dname from dept
+   where deptno = (select deptno from EMP
+   where sal=(select max(sal) from EMP
+    where sal<(select max(sal) from EMP
+      where sal<(select max(sal) from EMP
+ where sal<(select max(sal) from EMP)))));
+ 
+ 
+ 
+6. select* from EMP
+  where hiredate=(select min(hiredate) from EMP
+   where hiredate>(select min(hiredate) from EMP));
+   
+   
+ 7. select ename from EMP
+  where hiredate=(select max(hiredate) from EMP
+  where hiredate<(select max(hiredate) from EMP));
+  
+  
+8.  select loc from dept
+  where deptno=(select deptno from EMP
+  where hiredate=(select min(hiredate)from EMP));
+  
+  
+9. select* from EMP
+where sal=(select min(sal) from EMP
+where sal>(select min(sal) from EMP
+where sal>(select min(sal) from EMP
+where sal>(select min(sal) from EMP
+where sal>(select min(sal) from EMP
+where sal>(select min(sal) from EMP
+where sal>(select min(sal) from EMP)))))));
+
+
+
+10.select dname from dept
+  where deptno in(select deptno from EMP
+  where sal=(select max(sal) from EMP
+  where sal<(select max(sal) from EMP)));
