@@ -1,0 +1,75 @@
+Subquery(all)
+
+1.select* from EMP
+where deptno in(select deptno from dept
+where dname like '%S');
+
+
+2.select ename from EMP
+where sal in(select max(sal) from EMP
+
+where deptno in(select deptno from dept
+where dname='ACCOUNTING'));
+
+
+3. select dname from dept
+where deptno in(select deptno from EMP
+where comm in(select max(comm) from EMP));
+
+
+4.select ename from EMP
+where deptno in(select deptno from dept
+where dname like '_O%');
+
+
+5.select* from EMP
+where deptno =(select deptno from EMP
+where ename='SCOTT');
+
+
+6. select* from EMP
+where deptno in(select deptno from dept
+where dname in('OPERATIONS','ACCOUNTING'));
+
+
+7.select ename from EMP
+where sal>(select sal from EMP
+where ename='MILLER');
+
+
+
+8. select dname from dept
+where deptno in(select deptno from EMP
+where job='SALESMAN'
+group by deptno
+having count(*)>2
+) ;
+
+9. select dname from dept
+ where deptno in(select deptno from EMP
+ where mgr is null);
+ 
+10. select* from EMP
+where mgr in(select empno from EMP
+where ename ='JONES');
+
+11.select ename from EMP
+where deptno in(select deptno from dept
+where dname in ('ACCOUNTING','ACCOUNTING')
+and empno in(select mgr from EMP
+group by mgr having count(*)>1));
+
+
+12. select dname from dept
+where deptno in(select deptno from EMP
+where ename not like 'S%' and sal between 1501 and 2999);
+
+
+13. select loc from dept
+
+
+
+
+
+
+

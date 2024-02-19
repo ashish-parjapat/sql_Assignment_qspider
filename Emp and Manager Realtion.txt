@@ -1,0 +1,57 @@
+Emp and Manager Realtion
+
+1. select ename from EMP
+  where empno=(select mgr from EMP
+  where ename='SMITHS');
+  
+  
+ 2. select ename from EMP
+  where empno=(select mgr from EMP
+  where empno=(select mgr from EMP
+  where ename='ADAMS'));
+  
+  
+  
+ 3. select dname from dept
+   where deptno=(select deptno from EMP
+   where empno=(select mgr from EMP
+    where ename='JONES'));
+    
+    
+    
+  4. select sal from EMP
+   where empno=(select mgr from EMP
+    where ename='MILLER');
+    
+    
+  5. select loc from dept 
+   where deptno IN(select deptno from EMP
+   where empno IN(select mgr from EMP
+   where empno IN(select mgr from EMP
+   where ename='SMITH')));
+   
+   
+   
+  6. select ename from EMP
+    where mgr IN(select empno from EMP
+     where ename='BLAKE');
+     
+     
+  7. select count(*) from EMP
+  where mgr IN(select empno from EMP
+  where ename='KING');
+  
+  
+  8. select* from EMP
+  where mgr=(select empno from EMP
+  where ename='JONES');
+  
+  
+  9. select ename from EMP
+  where mgr in(select empno from EMP
+  where empno=(select mgr from EMP
+  where ename='BLAKE'));
+  
+  10. select count(ename) from EMP where mgr in(select empno from EMP where empno=(select mgr from EMP where ename='FORD'));
+
+  
