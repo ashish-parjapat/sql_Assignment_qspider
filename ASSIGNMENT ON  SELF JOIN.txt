@@ -1,0 +1,41 @@
+ASSIGNMENT ON SELF JOIN
+
+1. select ename,loc from EMP,dept
+  where EMP.deptno=dept.deptno;
+  
+ 2. select dname,sal from dept,EMP
+  where EMP.deptno=dept.deptno and
+  dname='ACCOUNTING';
+  
+  
+  3. select dname,sal*12 as Annual_salary from dept,EMP
+  where EMP.deptno=dept.deptno and sal>2340;
+  
+  
+  4. select ename,dname from EMP,dept
+  where EMP.deptno=dept.deptno and dname like '%A%';
+  
+  
+  5. select ename,dname from EMP,dept
+    where EMP.deptno=dept.deptno and job='SALESMAN';
+    
+    
+   6.select dname,job from dept,EMP
+   where EMP.deptno=dept.deptno and dname like 'S%' and job like 'S%';
+   
+   
+   7. select dname,mgr from dept,EMP
+   where EMP.deptno=dept.deptno and mgr=7839;
+   
+   
+   8. select dname,hiredate from dept,EMP
+   where EMP.deptno=dept.deptno and hiredate>'1982-12-31'
+   and dname in ('ACCOUNTING','RESEARCH');
+   
+   
+   9.select ename,dname from EMP,dept
+   where EMP.deptno=dept.deptno and comm is not null and EMP.deptno in(10,20);
+   
+   
+   10. select dname,empno from dept,EMP
+   where EMP.deptno=dept.deptno and empno in(7839,7902) and loc='NEW YORK';
