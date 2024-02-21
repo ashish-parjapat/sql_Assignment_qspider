@@ -66,9 +66,111 @@ where ename not like 'S%' and sal between 1501 and 2999);
 
 
 13. select loc from dept
+  where deptno=(select deptno from EMP
+  where sal in(select min(sal) from EMP
+  where sal>2000));
+  
+  
+  
+ 14. select loc from dept
+  where deptno in(select deptno from EMP
+  where deptno in(select deptno from dept
+  where dname='ACCOUNTING'));
+  
+  15.select loc from EMP
+  where deptno in(select deptno from EMP
+  group by deptno
+  having count(*)>4);
+  
+  16. select enamefrom EMP
+  where job not in(select job from EMP
+  where ename='ALLEN') and sal>(select sal from EMP
+  where ename='MARTIN');
+  
+  
+  17. select ename from EMP
+  where deptno in(select deptno from dept
+  where loc in(select loc from dept
+  where deptno in(select deptno from EMP
+  where empno in(select mgr from EMP
+  where ename='ADAMS'))));
+  
+  
+  18. select job,mgr from EMP
+  where mgr in(select empno from EMP
+  where ename= 'JONES');
+  
+  19. select ename,hiredate ,comm from EMP
+  where empno in(select mgr from EMP
+  where ename='FORD');
+  
+  
+ 20. select count(*) from EMP
+ where sal<(select sal from EMP
+ where empno in(select mgr from EMP
+ where ename='BLAKE'));
+ 
+ 21.select ename from EMP
+   where deptno in(select deptno from dept
+   where loc='CHICAGO') and comm=0;
+   
+   
+ 22. select ename from EMP
+ where deptno in(select deptno from dept
+ where dname ='SALES') and sal>any(select avg(sal) from EMP
+ group by deptno);
+ 
+ 
+ 23. select ename from EMP
+ where deptno in(select deptno from dept
+ where dname ='RESEARCH') and job='MANAGER';
+ 
+ 24.select dname from dept
+ where deptno in(select deptno from EMP
+ where comm is not null);
+ 
+ 25.select dname from dept
+ where deptno in(select deptno from EMP
+ where sal=(select max(sal) from EMP) and mgr is null);
+ 
+ 
+ 26. select dname ,loc from dept
+ where deptno in(select deptno from EMP
+where empno in(select mgr from EMP
+where empno in(select mgr from EMP
+where job='SALESMAN')));
+ 
+ 
+ 29.select ename from EMP
+ where job =(select job from EMP
+ where ename='JONES') and sal<(select sal from EMP
+ where ename='SCOTT');
+ 
+ 
+ 30. select ename from EMP
+ where job =(select job from EMP
+ where ename='JONES') and sal<(select sal from EMP
+ where ename='SCOTT');
+ 
+ 31. select ename,sal*12 from EMP
+where deptno in(select deptno from EMP
+where deptno in(30,20)
+group by deptno
+having count(*)>=3);
 
+32. select ename from EMP
+where sal<Any(select sal from EMP
+where job='SALESMAN');
 
+33. select ename from EMP
+where hiredate<(select max(hiredate) from EMP);
 
+34. select sal from EMP
+where sal=(select min(sal) from EMP
+where sal>(select min(sal) from EMP
+where sal>(select min(sal) from EMP)));
+
+ 
 
 
 
