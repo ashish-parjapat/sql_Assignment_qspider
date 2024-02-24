@@ -1,41 +1,46 @@
 ASSIGNMENT ON INNER JOIN
 
-1. select ename,loc from EMP,dept
-  where EMP.deptno=dept.deptno;
+1. select e1.ename,e2.ename from EMP e1,EMP e2
+  where e1.mgr=e2.empno and e1.job='CLERK';
   
- 2. select dname,sal from dept,EMP
-  where EMP.deptno=dept.deptno and
-  dname='ACCOUNTING';
+  2. select e1.ename,e2.job from EMP e1,EMP e2
+  where e2.deptno in(10,20);
+  
+  3.select e1.ename,e2.sal from EMP e1,EMP e2
+  where e1.sal>2300 and e2.sal>2300;
+  
+  4.select e1.ename,e2.hiredate from EMP e1,EMP e2
+  where e1.hiredate<'1982-12-31';
+  
+  5.select e1.ename,e2.comm from EMP e1,EMP e2
+  where e1.job='SALESMAN' and e2.dept=30;
+  
+  6.select e1.ename,e2.ename,e1.sal,e2.sal from EMP e1,EMP e2
+  where e1.sal>e2.sal;
+  
+  7.select e1.ename,e1.hiredate,e2.ename,e2.hiredate from EMP e1,EMP e2
+  where e1.hiredate>e2.hiredate;
+  
+  8.select e1.ename,e2.ename from EMP e1,EMP e2
+  where e1.job in(e2.job);
+  
+  9.select e1.ename,e2.ename from EMP e1,EMP e2
+  where e2.job='MANAGER';
+  
+  10. select e1.ename,e1.sal*12,e2.ename,e2.sal*12 from EMP e1,EMP e2
+  where e1.deptno in(10,20) and e2.sal>e1.sal;
+  
+  11. select e1.ename,e2.job from EMP e1,EMP e2;
   
   
-  3. select dname,sal*12 as Annual_salary from dept,EMP
-  where EMP.deptno=dept.deptno and sal>2340;
+  12.select e1.ename,e2.sal from EMP e1,EMP e2
+  where e2.sal like '%50';
   
+  13.select e1.ename,e2.ename,e2.comm from EMP e1,EMP e2
+  where e2.comm is not null;
   
-  4. select ename,dname from EMP,dept
-  where EMP.deptno=dept.deptno and dname like '%A%';
+  14.select e1.ename,e1.sal,e2.ename,e2.sal from EMP e1,EMP e2
+  where e2.sal>e1.sal;
   
-  
-  5. select ename,dname from EMP,dept
-    where EMP.deptno=dept.deptno and job='SALESMAN';
-    
-    
-   6.select dname,job from dept,EMP
-   where EMP.deptno=dept.deptno and dname like 'S%' and job like 'S%';
-   
-   
-   7. select dname,mgr from dept,EMP
-   where EMP.deptno=dept.deptno and mgr=7839;
-   
-   
-   8. select dname,hiredate from dept,EMP
-   where EMP.deptno=dept.deptno and hiredate>'1982-12-31'
-   and dname in ('ACCOUNTING','RESEARCH');
-   
-   
-   9.select ename,dname from EMP,dept
-   where EMP.deptno=dept.deptno and comm is not null and EMP.deptno in(10,20);
-   
-   
-   10. select dname,empno from dept,EMP
-   where EMP.deptno=dept.deptno and empno in(7839,7902) and loc='NEW YORK';
+  15.select e1.ename,e1.job,e2.ename,e2.job from EMP e1,EMP e2 
+  where e1.job =e2.job;
