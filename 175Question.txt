@@ -419,6 +419,252 @@ where ename='KING');
   deptno in(select deptno from dept
   where dname='RESEARCH');
   
+  
+  1.select ename,job,comm,deptno,sal,sal-(sal*35)/100 as "deduct_sal" from EMP
+  where job<>'CLERK' and deptno in(10,20,30) and hiredate>='1984-01-31' and sal>comm;  //something wrong here
+  
+  
+  2. select* from EMP
+  where sal between 250 and 500 and deptno in(10,20,30);
+  
+  
+  3. select* from EMP
+  where deptno in(10,20) and comm between 1001 and 2999 and hiredate between '1980-01-31' and '1983-12-31';
+  
+  
+  4.select* from EMP
+  where mgr is null;
+  
+  5.select* from EMP
+  where comm is null;
+  
+  6.select ename from EMP
+  where ename like 'A%';
+  
+  7. select ename from EMP
+  where ename like 'A%A';
+  
+  8. select ename from EMP
+  where ename like '%A%A%';
+  
+  9. select ename from EMP
+  where ename like '%MAD%';
+  
+  10.  select ename from EMP
+  where ename like '_A%';
+  
+  11. select ename from EMP
+  where ename like '%A%A%';
+  
+  12. select ename from EMP
+  where ename like '_AE%';  //question is not clear
+  
+  13. select ename from EMP
+  where ename like '__R%';
+  
+  select ename,job from EMP
+  where job like '_____';
+  
+  14. select ename from EMP
+  where sal between 2001 and 2999;
+  
+  15.select ename from EMP
+  where comm is null;
+  
+  select ename from EMP
+  where mgr is null;
+  
+  select ename from EMP
+  where job='SALESMAN' and deptno=30;
+  
+  16.   select ename from EMP
+  where job='SALESMAN' and deptno=30 and sal>5000;
+  
+  17 select ename from EMP
+  where ename like 'S%' or ename like 'A%';
+  
+  18.select * from EMP
+  where deptno not in(10,20);
+  
+  19. select ename from EMP
+  where ename not like 'S%';
+  
+  20. select ename from EMP
+  where mgr is not null and deptno=10;
+  
+  21. select* from EMP
+  where job like '%\_%';  //it is important  and cross check it
+  
+  22. select* from EMP
+  where ename like '%\%%';  //it is important
+  
+  23. select* from EMP
+  where ename like '_\_%';
+  
+  24. select ename from EMP
+  where ename like '%A%A%';
+  
+  25. select ename from EMP
+  where sal>2500 and deptn20;
+  
+  26. select * from EMP
+  where job='MANAGER' and deptno in(20,30);  //something
+  
+  27.select ename from EMP
+  where job='MANAGER' and mgr is null;
+  
+  28.select ename from EMP
+  where comm>0 and job not in('MANAGER','ANALYST');
+  
+  29. select ename from EMP
+  where job='MANAGER' and sal like '%0';
+  
+  30. select ename from EMP
+  where job in('CLERK','ANALYST') and sal>1000;
+  
+  31.select ename from EMP
+  where ename like '_%E' and sal like '____';  /last but one character
+  
+  
+  32.select ename from EMP
+  where hiredate>'1981-12-31';
+  
+  33. select ename from  EMP
+  where hiredate like '___%-02-%__';
+  
+  34. select ename from EMP
+  where job not in('MANAGER','CLERK') and deptno in(10,20) and sal  between
+  1000 and 3000;
+  
+  35. select ename from EMP
+  where job<>'SALESMAN' and sal not between 1000 and 3000 and deptno in(10,20,30);  
+  
+  36.select dname from dept
+  where loc like '%A%' and dname like '%A%';
+  
+  37. select max(sal),min(sal),avg(sal) from EMP
+  where job<>'SALESMAN';
+  
+  38. select count(*), sum(sal) from EMP
+  where deptno in(20,30);  //something is wrong here
+  
+  39. select max(sal),min(sal) from EMP
+  where ename like 'A%' or  ename like 'S%' or  ename like 'M%' ;
+  
+  40. select count(*) from EMP
+  where job='SALESMAN' and deptno=30;
+  
+  41. select avg(sal) from EMP
+  where job='MANAGER';
+  
+  42.select count(*) from EMP
+  where deptno in(10,30)
+  group by deptno;
+  
+  43. select avg(sal),sum(sal),deptno from EMP
+  group by deptno;
+  
+  44. select max(sal),min(sal),job from EMP
+     group by job;
+     
+  45. select sum(sal),deptno from EMP
+  where sal<=3000
+  group by deptno;
+  
+  
+  46. select max(sal),deptno from EMP   //check this it is wrong
+  group by  deptno;
+  
+  47.select deptno,count(*) from EMP
+  group by deptno
+  having count(*)>4;
+  
+  48. select max(sal),job from EMP
+  where sal>1500
+  group by job;
+  
+  49. select max(sal),job from EMP
+  where sal>1500 and deptno<>30
+  group by job;
+  
+  50.select deptno,count(*) from EMP
+  group by deptno;
+  
+  51.select deptno from EMP
+  group by deptno
+  having count(*)>4;
+  
+  52. select  max(sal),job from EMP
+  where ename  not like '%S'
+  group by job;    //something is not looking right
+  
+  
+  53. select deptno from EMP
+  group by deptno
+  having sum(sal)>9000;
+  
+  54.select max(sal),deptno from EMP
+  group by deptno
+  having max(sal)<10000 and max(Sal)>5000 and sum(sal)<10000;
+  
+  
+  55. select sum(sal),job from EMP
+  where deptno in(10,20)
+  group by job
+  having sum(sal)<10000;
+  
+  
+  56. select avg(sal),deptno from EMP
+  where mgr is not null
+  group by deptno;
+  
+  57. select max(comm),min(comm),avg(comm),max(sal),min(sal),avg(sal),deptno from EMP
+  where hiredate between '1981-01-31' and '1984-12-31'
+  group by deptno;   //within 1980 and 1985 check it
+  
+  58. select max(sal),sum(sal),deptno from EMP
+  where job not like '%\_%'
+  group by deptno
+  having sum(sal)<>5000 and sum(sal)>9000;
+  
+  59.select* from EMP
+  where job=(select job from EMP
+  where ename='MARTIN');
+  
+  
+  60.select ename from EMP
+  where hiredate>(select hiredate from EMP
+  where ename='MILLER');
+  
+  
+  61.select* from EMP
+  where sal>(select sal from EMP
+  where ename='ADAMS') and sal<(select sal from EMP
+  where ename='SCOTT');
+  
+  62. select ename ,sal*12 "ANNUAL SALARY" from EMP
+  where deptno in(select deptno from dept
+  where loc='NEW YORK');
+  
+  
+  63.select* from EMP
+  where deptno in(select deptno from EMP
+  where ename in('SMITH','ALLEN'));
+  
+  
+  64. 
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
 
    
   
