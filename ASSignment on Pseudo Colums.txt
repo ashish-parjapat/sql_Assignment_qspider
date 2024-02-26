@@ -1,0 +1,116 @@
+ ASSignment on Pseudo Colums
+ 
+ 
+ 1. select * from(
+ select EMP.*,row_number() over() as row_num
+ from EMP)
+ 
+ as temp
+ where row_num<=1;
+ 
+ 
+ 2. select* from
+ (select EMP.*,row_number() over() as rownum 
+ from EMP) as temp
+ where rownum<=3;
+ 
+ 
+ 3. select* from
+ (
+ select EMP.*,row_number() over(order by empno desc) as rownum from EMP)
+ as temp
+ where rownum=1;
+ 
+ 4. last but one record mean
+ 
+ 
+ 5. select * from 
+ ( select EMP.* ,row_number() over() as rownum from EMP)
+ as temp
+ where mod(rownum,2)=0;
+ 
+ 
+ 6. select * from 
+ ( select EMP.* ,row_number() over() as rownum from EMP)
+ as temp
+ where mod(rownum,2)=1;
+ 
+ 7. select * from 
+ ( select EMP.* ,row_number() over() as rownum 
+ count(*) over() as totalrow
+ 
+ from EMP)
+ as temp
+ where rownum<=totalrow/2;
+ 
+ 8. select* from
+ ( select EMP.*, row_number() over(order by empno desc) as rownum,
+ count(*) over() as totalrow
+ from EMP)
+ as temp
+ where rownum<=totalrow/2;  //something is not write here
+ 
+ 9. select* from(
+ select EMP.* ,row_number() over() as rownum
+ from EMP) as temp
+ where rownum=4;
+ 
+ 10.  select* from(
+ select EMP.* ,row_number() over() as rownum
+ from EMP) as temp
+  
+  where rownum in(1,3,5);
+ 
+ 
+ 11. select sal from
+ ( select sal,row_number() over() as rownum
+ from (select distinct sal from EMP
+ order by sal desc) as temp2
+ 
+ 
+ 
+ )as temp
+ where rownum<=3;
+ 
+ why not this
+ select sal from EMP
+ order by sal desc
+ limit 3;
+ 
+ 
+ 12. select sal from
+ (select sal,row_number() over() as rownum
+ from ( select distinct sal from EMP order by sal)temp2
+ 
+ 
+ ) as temp
+ where rownum<=5;
+ 
+ 
+ 
+ select distinct sal from EMP
+ order by sal
+ limit 5;
+ 
+ 
+ 13.  select sal from
+ (select sal,row_number() over() as rownum
+ from ( select distinct sal from EMP order by sal)temp2
+ 
+ 
+ ) as temp
+ where rownum in(1,3,5);
+ 
+ 
+ 14. select sal from
+ (select sal,row_number() over(order by sal desc) as rownum,
+ count(*) over() as totalrow
+ from EMP) as temp
+ where rownum in(1,totalrow);
+ 
+ 
+ 15. select sal from (
+ select sal,row_number() over (order by sal) as rownum    //bootom 3 maximum salries
+ from EMP) as temp
+ where rownum<=3;
+ 
