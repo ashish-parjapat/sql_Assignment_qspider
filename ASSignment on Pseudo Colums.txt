@@ -114,3 +114,92 @@
  from EMP) as temp
  where rownum<=3;
  
+ 
+ 
+ CREATE TABLE elementProperties (
+    PropertyID INT AUTO_INCREMENT PRIMARY KEY,
+    ElementID INT,
+    PropertyName VARCHAR(255),
+    PropertyValue DECIMAL(10, 2),
+    FOREIGN KEY (ElementID) REFERENCES elements(ElementID)
+);
+ 
+ 
+ INSERT INTO elementProperties (ElementID, PropertyName, PropertyValue)
+VALUES 
+(1, 'MeltingPoint', -259.14),
+(1, 'BoilingPoint', -252.87),
+(2, 'MeltingPoint', -272.2),
+(2, 'BoilingPoint', -268.93),
+(3, 'MeltingPoint', 180.54),
+(3, 'BoilingPoint', 1347),
+(4, 'MeltingPoint', 1287),
+(4, 'BoilingPoint', 2470),
+(5, 'MeltingPoint', 2348),
+(5, 'BoilingPoint', 4200),
+(6, 'MeltingPoint', 3550),
+(6, 'BoilingPoint', 4827),
+(7, 'MeltingPoint', -210.01),
+(7, 'BoilingPoint', -195.79);
+
+
+
+-- Inserting data into the ElementProperties table for all elements
+INSERT INTO elementProperties (ElementID, PropertyName, PropertyValue)
+VALUES 
+-- Properties for Hydrogen (ElementID = 1)
+(1, 'MeltingPoint', -259.14),
+(1, 'BoilingPoint', -252.87),
+
+-- Properties for Helium (ElementID = 2)
+(2, 'MeltingPoint', -272.2),
+(2, 'BoilingPoint', -268.93),
+
+-- Properties for Lithium (ElementID = 3)
+(3, 'MeltingPoint', 180.54),
+(3, 'BoilingPoint', 1347),
+
+-- Properties for Beryllium (ElementID = 4)
+(4, 'MeltingPoint', 1287),
+(4, 'BoilingPoint', 2470),
+
+-- Properties for Boron (ElementID = 5)
+(5, 'MeltingPoint', 2348),
+(5, 'BoilingPoint', 4200),
+
+-- Properties for Carbon (ElementID = 6)
+(6, 'MeltingPoint', 3550),
+(6, 'BoilingPoint', 4827),
+
+-- Properties for Nitrogen (ElementID = 7)
+(7, 'MeltingPoint', -210.01),
+(7, 'BoilingPoint', -195.79),
+
+-- Properties for Oxygen (ElementID = 8)
+(8, 'MeltingPoint', -218.79),
+(8, 'BoilingPoint', -182.96),
+
+-- Properties for Fluorine (ElementID = 9)
+(9, 'MeltingPoint', -219.67),
+(9, 'BoilingPoint', -188.12),
+
+-- Properties for Neon (ElementID = 10)
+(10, 'MeltingPoint', -248.59),
+(10, 'BoilingPoint', -246.08),
+
+-- Properties for Sodium (ElementID = 11)
+(11, 'MeltingPoint', 370.95),
+(11, 'BoilingPoint', 1156),
+
+-- Properties for Magnesium (ElementID = 12)
+(12, 'MeltingPoint', 923),
+(12, 'BoilingPoint', 1380),
+
+-- Properties for Aluminium (ElementID = 13)
+(13, 'MeltingPoint', 933.47),
+(13, 'BoilingPoint', 2792),
+
+-- Properties for Silicon (ElementID = 14)
+(14, 'MeltingPoint', 1687),
+(14, 'BoilingPoint', 3173);
+

@@ -55,3 +55,16 @@ ASSIGNMENT ON GROUP BY
       
  15.     select count(*),deptno,hiredate,sal from EMP
           group by deptno,sal,hiredate;
+          
+          
+          
+          
+          
+   
+
+
+
+
+
+     
+       
